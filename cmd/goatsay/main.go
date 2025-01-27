@@ -2,12 +2,16 @@ package main
 
 import (
 	"bufio"
+	_ "embed"
 	"fmt"
 	"io"
 	"os"
 
 	"github.com/marufMunshi/goatsay-cli/internal"
 )
+
+//go:embed goat.txt
+var goatArt string
 
 func main() {
 	standardInputFileInfo, standardInputFileError := os.Stdin.Stat()
@@ -43,9 +47,5 @@ func main() {
 	messageToPrint := internal.FormatLinesToBalloonText(normalizedLines, maxLength)
 
 	fmt.Println(messageToPrint)
-
-	// as this file is very small in size, we are reading this file in one step
-	// for larger files bufio should be used
-	goatFromFile, _ := os.ReadFile("cmd/goatsay/goat.txt")
-	fmt.Println(string(goatFromFile))
+	fmt.Println(goatArt)
 }

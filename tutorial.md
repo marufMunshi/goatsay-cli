@@ -182,9 +182,18 @@ func FormatLinesToBalloonText(lines []string, maximumLength int) string {
 
 ## Print the Goat
 
-Last part is to printing the goat. I have taken this goat ASCII art form [arcii art archive website](https://www.asciiart.eu/animals/other-land). This Goat art contains bacticks (``) and sapces, it best to be used form a text file. 
-As this file is very small we are reading this in one step with `os.Readfile`. For larger files bufio should be used.
+Last part is to printing the goat. I have taken this goat ASCII art form [arcii art archive website](https://www.asciiart.eu/animals/other-land). This Goat art contains bacticks (``) and other special characters. In go we can not use backtick inside backtick. so, it best to be used form a text file.
 
 ```go
 	goatFromFile, _ := os.ReadFile("cmd/goatsay/goat.txt")
+```
+
+Initially I read the file using a realtive path. It works while running with `go run`. But when this program installed with `go install` and run as a binary
+working directory is different and program fail to find the .txt file.
+
+So, mitigate this problem we used embed directive to load the file at complie time into a variable. [embed directive](https://pkg.go.dev/embed#hdr-Directives)
+
+```go
+//go:embed goat.txt
+var goatArt string
 ```
