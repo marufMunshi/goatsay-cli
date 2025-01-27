@@ -1,5 +1,7 @@
 # Greetings form Goatsay
 
+![goatsay in terminal](goatsay.png)
+
 ## What is this package
 
 This package is a inspired form the [cowsay](https://en.wikipedia.org/wiki/Cowsay) package.
@@ -11,9 +13,9 @@ To remember that Goat, I wrote this programe. It's written in Go, because Javasc
 
 ## Prerequisite
 
-This package needs fortune. Ubuntu/Linux may already include this package. If not please downlaod it. [Linux] (https://www.shlomifish.org/open-source/projects/fortune-mod/)
+This package needs fortune. Ubuntu/Linux may already include this package. If not please downlaod it from here [Linux](https://www.shlomifish.org/open-source/projects/fortune-mod/)
 
-MacOs users can download it via [homebrew](https://formulae.brew.sh/formula/fortune)
+macOS users can download it via [homebrew](https://formulae.brew.sh/formula/fortune)
 
 ```bash
 brew install fortune
@@ -44,4 +46,4 @@ fortune | ./goatsay-linux
 ## Tutotrial
 
 I used this project to learn go, so the tutorial is quite large and beginner friendly
-Please see this [page](tutorial.md).
+Please see this page for [tutorial](tutorial.md).
